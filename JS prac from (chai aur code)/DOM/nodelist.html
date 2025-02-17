@@ -1,0 +1,52 @@
+<!-- in this we study more concepts of node list  --> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Nodelist </title>
+    <style>
+        body{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+
+</body>
+
+<script>
+    
+    // to create the div element in the java script
+    const div = document.createElement('div')
+    console.log(div);
+
+    // add more class and id's to the div
+    div.className = "CLASS"     // to give class name
+    //  div.id = "ID"           general method to assign a name to id
+    div.id = Math.round(Math.random() * 10 + 1)        // just for fun try to add some random id names
+
+    // assign attributes
+    div.setAttribute("title", "Bhavya")
+
+    // now apply styling to this div
+    div.style.backgroundColor = "green"           // jiska bhi style change krna h uss noda ka name then .style
+    div.style.padding = "12px"
+
+    // input data 
+    // div.innerText = " Practice DOM commands "         simple method to input data
+
+    // another method to input data
+    const addText = document.createTextNode(" Practice DOM commands ")
+    div.appendChild(addText)
+    document.body.appendChild(div)        // allow the boly of document to add child div
+
+
+</script>
+
+</html>

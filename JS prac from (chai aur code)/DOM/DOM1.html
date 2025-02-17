@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM_1</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <ul class="language">
+        <li class="javaScript">JavaScript</li>
+    </ul>
+    
+</body>
+
+<script>
+
+    // add more languages using function, it is a basic method to append child
+    function addLang(langName){
+        const li = document.createElement('li')       // new elements jo hm create karenge unko ek variable m store krre h
+        li.innerHTML = `${langName}`                  // add more language name in li
+        document.querySelector('.language').appendChild(li)      // document se language select krke append krna h as a child
+    }
+
+    addLang("python")    // call the func with diff lang name
+    addLang("java")
+
+    // basically above working is like that hmne ek new element create kiya jiska name li rakha, ab initially toh li ke andar koi html nhi h vo empty h toh hm inner html use krke usm kuch langName store karenge through function, then hm uppr se querySelector ke through language div select karenge the vo li languages usm append kr denge
+
+
+    // more optimised method
+    function addOpptimization(langName){                   // we can use the same parameter and li variable because in above it use in scope outside scope it doesn't affect other set of code
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li) 
+    }
+
+    addOpptimization("python")    // call the func with diOaddOpptimization name
+    addOpptimization("java")
+
+
+    // code to apply editing on data
+    const secondOption = document.querySelector("li:nth-child(2)")
+    // console.log(secondOption)                 to check that which element i've choosen
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
+    secondOption.replaceWith(newli)
+
+    // one more edit 
+    const firstOption = document.querySelector("li:first-child")
+    firstOption.outerHTML = '<li>TypeScript</li>'                     // first element changes to the typescript
+
+    // remove
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()     // last element remove
+
+
+</script>
+</html>
+
+
+    <!--  imp adding commands
+        1. node.append() : add at end of node (inside collection)
+        2. node.prepend() : add at start of node (inside collection)
+        3. node.before() : add at before of node (outside collection)
+        4. node.after() : add at after of node (outside collection)
+    -->

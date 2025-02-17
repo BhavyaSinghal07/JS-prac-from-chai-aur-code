@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    <div class="parent">
+        <div class="day">Sunday</div>
+        <div class="day">Monday</div>
+        <div class="day">Tueday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+        <div class="day">Saturday</div>
+    </div>
+
+    <div class="att">           
+        <p name="att_prac">           <!--  this name work as the attribute for the div -->
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid voluptatem omnis tenetur aperiam temporibus reiciendis repudiandae dolore minus! Alias pariatur nobis amet temporibus tempore corporis deleniti doloribus repellat distinctio dolorem?
+        </p>
+    </div>
+    
+</body>
+
+<script>
+
+    // using the parent we can traverse the child
+    const p = document.querySelector('.parent')   // we assign a const p to parent class hence we use p further to traverse parent
+    console.log(p)
+    console.log(p.children)     // gives all child, it gives us child with html code
+    console.log(p.children[1])  // give 1st index child
+
+    // using for loop traverse child with the help of parent
+    for (let i = 0; i < p.children.length; i++) {
+        console.log(p.children[i].innerHTML);      // it gives us child without html code
+    }
+
+    // let's styling the children
+    p.children[1].style.color = "green"       // change the color of 1st index element
+    console.log(p.firstElementChild)          // give 1st child sunday because in seq sunday is 1st child
+    console.log(p.lastElementChild)           // give last child saturday because in seq saturday is last child
+
+
+    // using the child we can also traverse the parent node
+    const day1 = document.querySelector('.day')      // querySelector gives only the first value, that's why it gives sunday which is the first element of day class
+    console.log(day1)                                // print sunday
+    console.log(day1.parentElement)                  // traverse parent node using child
+    console.log(day1.nextElementSibling)             // traverse only one sibling of child day1
+
+    console.log("NODES: ", p.childNodes)     // it gives all the node that are contain by parent class which is more than 7 child because it also contains all the spaces etc
+
+
+    // accesing the attribute
+
+    // .getAttribute method: to find the value of an attribute
+    const a = document.querySelector("p")       // yaha hm phle select krre h ki kism traversing krni h toh phle para "p" attribute se select kiya phir usse name through attribute name find kiya
+    console.log(a.getAttribute("name"))         // get attribute through the name 
+ 
+    // .setAttribute method: to set the value of attribute
+    const b = document.querySelector("p")       // yaha hm phle select krre h ki kism traversing krni h toh phle para "p" attribute se select kiya phir usse .setAttribute("att", "new_name") ke through change karenge
+    console.log(b.setAttribute("name", "newAtt"))         // set attribute through the name jiska change krna h aur jo new change krna h
+
+
+</script>
+
+</html>
+
+
+
+<!-- 
+    1. DOM: Document Object Model 
+    2. title.innerText : gives the content which is visible on the website 
+    3. title.textContent : give the content which even not visible hide by other properties
+    4. all other functions .querySelector, .parentElement, .firstElementChild e.t.c. gives data with html code otherthan .innerHTML gives data in the html code
+    5. when we use .querySelector for a class then we have to put . before it as:- document.querySelector('.day') here day is class name
+    6. when we use .querySelector for a id then we have to put # before it as:- document.querySelector('#day') here day an id name
+    7. document.getAttribute("att_Name") ke through we get the value of that name
+    8. document.setAttribute("att_Name", "new_val") ke through we can change the val of that attribute
+
+-->
