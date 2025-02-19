@@ -1,0 +1,48 @@
+/* body {
+    background-color: black;
+    color: rgb(255, 255, 255);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+} */
+
+html{
+    margin: 0;
+}
+
+span{
+    display: block;
+}
+
+.canvas{
+    margin: 100px auto 100px;
+    width: 80%;
+    text-align: center;
+}
+
+.button{
+    width: 100px;
+    height: 100px;
+    border: solid black 2px;
+    display: inline-block;
+}
+
+#grey{
+    background: rgb(199, 13, 199);
+}
+
+#green{
+    background: rgb(57, 231, 57);
+}
+
+#brown{
+    background: rgb(144, 41, 41);
+}
+
+#pink{
+    background: rgb(255, 145, 206);
+}
