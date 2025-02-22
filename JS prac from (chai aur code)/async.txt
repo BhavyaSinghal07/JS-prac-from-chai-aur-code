@@ -1,0 +1,9 @@
+By default JS is synchronous i.e. it works in sequential form but on adding extra functions we can make it asynchonous
+By default JS is single threaded
+
+Blocking code: block the flow of program and read file synchronous
+Non Blocking code: don't block execution and read file asynchonous
+
+JS engine: memory heap, call stack
+web API: DOM, set time out, set interval, fetch,  Register call back
+task queue: call back

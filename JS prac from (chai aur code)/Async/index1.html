@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASYNC</title>
+</head>
+<body>
+
+    <h1>Chai aur JS</h1>
+
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+</body>
+
+<script>
+
+
+// TASK: on click start the set interval function starts working and on click stop it stops
+    const si = function(str){
+        console.log(str, Date.now())
+    }
+    let s;      // use let function because it can accessible out of scope
+
+    // work start at click on start button
+    document.querySelector('#start').addEventListener('click', function(){
+        console.log("start")              // to only check that it works or not
+        s = setInterval(si, 1000, "hi")   // assign the let s a setInterval() function and working
+    })
+    
+    // work stop at click on stop button
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearInterval(s)          // when i click on the stop button it stop the setInterval() functioning
+        console.log("stoped")     // to only check that it works or not
+    })
+
+
+</script>
+
+</html>

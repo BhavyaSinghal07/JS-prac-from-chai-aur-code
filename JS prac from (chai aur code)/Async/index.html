@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASYNC</title>
+</head>
+<body>
+
+    <h1>Chai aur Code</h1>
+    <button id="stop">Stop</button>
+    
+</body>
+
+
+<script>
+
+        
+    setTimeout(function(){               // this function prints output in console after 2 sec because we set 3rd parameter as 2000, but only once
+        console.log("Set timeout works after each 2 sec")
+    }, 2000);
+
+    setInterval(function(){              // this function prints output in console after each 2 sec because we set 3rd parameter as 2000
+        console.log("Set timeout works after each 2 sec")
+    }, 2000)
+
+
+    // another way to write setTimeout() function
+    const st = function(){
+        console.log("setTimeout() function");
+    }
+    setTimeout(st, 2000)
+
+
+    // we can change the text after 2 sec
+    const ct = function(){
+        document.querySelector('h1').innerHTML = "Changed text after 2 sec"     // selects the h1 tag and change text after 2 sec
+    }
+    const s = setTimeout(ct, 2000)
+
+
+    // we can stop the working of above text change function
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(s)          // when i click on the stop button it stop the change text function
+        console.log("stoped")    // to only check that it works or not
+    })
+
+
+    // to stop the setInterval() function
+    const si = function(str){
+        console.log(str, Date.now())
+    }
+    const sis = setInterval(si, 1000, "hi")   // this prints the hi on each 1 sec with the current date
+
+    clearInterval(sis)    // this stops the si function
+
+
+</script>
+
+</html>
+
+
+<!-- Note: setTimeout() works only once while setInterval() works on each particular time interval
+-->

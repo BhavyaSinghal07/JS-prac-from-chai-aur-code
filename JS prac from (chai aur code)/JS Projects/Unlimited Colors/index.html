@@ -1,0 +1,89 @@
+<!-- on clicking start it changes the colour of background on each sec and stops on clicking stop -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlimited color</title>
+</head>
+<body>
+
+    <h1> Click on start button to change background colour on each sec </h1>
+
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+</body>
+
+<script>
+
+
+    // generate a random colour
+    const rc = function(){
+        const h = "0123456789ABCDEF"       // we have to find random hex value whose limit is h which contains only 6 digit for a color
+        let color = '#'
+        for (let i = 0; i < 6; i++) {
+            color  += h[Math.floor(Math.random() * 16)];   // here we can use * 10 but we use *16 because in h there is 16 digit hence it can give us the alpha values also
+        }
+        return color    // this is the final color including # in starting
+    }
+    console.log(rc())    // to check that which color is given by random color function
+
+
+    // TASK: on clicking start it changes the colour of background on each sec and stops on clicking stop
+    let r;
+    const start = function () {
+
+        function change() {
+            document.body.style.backgroundColor = rc();
+            }
+
+        if (!r) {                             // start the process again on multiple stops
+            r = setInterval(change, 1000);
+        }
+
+    }
+
+    const stop = function () {
+        clearInterval(r);
+        r = null;           // null the value of r because task doesn't stop when you want to click on twice
+    };
+
+    document.querySelector('#start').addEventListener('click', start);     // on click start it starts changing color
+
+    document.querySelector('#stop').addEventListener('click', stop);       // work stop at click on stop button
+
+
+
+    /*
+
+    // Note: in this below program there is only one issue that on multiple clicks on start button it stops the working of stop button because here we apply   all functions within start and stop call which creates the scopping issue
+
+    // TASK: on clicking start it changes the colour of background on each sec and stops on clicking stop
+
+    let r        // use let function because it can accessible out of scope
+
+    const c = function(){
+        document.body.style.backgroundColor = rc()
+    }
+
+    // on click start it starts changing color
+    document.querySelector('#start').addEventListener('click', function(){
+        console.log("start")             // to only check that it works or not
+
+        r = setInterval(c, 1000)         // assign the let r a setInterval() function and it works for c function on each 1 sec
+    })
+
+    // work stop at click on stop button
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearInterval(r)          // when i click on the stop button it stop the setInterval() functioning
+        console.log("stoped")     // to only check that it works or not
+    })
+
+    */
+
+
+</script>
+
+</html>
