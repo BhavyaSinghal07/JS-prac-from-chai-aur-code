@@ -1,0 +1,6 @@
+->  through this link we can get random api key :  https://randomuser.me/
+
+->  through this we can formating the API's and extract data from it :  https://jsonformatter.org/
+
+
+-> MDN document on javascript: https://developer.mozilla.org/en-US/docs/Web/JavaScript

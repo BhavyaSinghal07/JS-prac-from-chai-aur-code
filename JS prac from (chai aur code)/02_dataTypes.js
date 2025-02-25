@@ -43,7 +43,7 @@ console.log(typeof age)   // provide the data type of age variable
 console.log(typeof null)   // object because it is a standard datatype
 
 
-/* Note: MDM, ECMA provides the document which contains the standard syntax of js
+/* Note: MDN, ECMA provides the document which contains the standard syntax of js
          here Number contains all the datatypes as int, float double e.t.c.
 */
 

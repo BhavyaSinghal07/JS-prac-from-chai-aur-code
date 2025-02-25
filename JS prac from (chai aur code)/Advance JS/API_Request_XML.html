@@ -1,0 +1,41 @@
+<!-- XML API request -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML</title>
+</head>
+<body style="background-color: #212121; color: antiquewhite;">
+
+    <h1>Contains XML commands</h1>
+    
+</body>
+
+<script>
+
+    const reqURL = 'https://api.github.com/users/BhavyaSinghal07'
+    const xhr = new XMLHttpRequest();
+    xhr.open( 'GET', reqURL )            // open is gunction of XMLHTTpRequest class in which we write open(request, for which API)
+
+   xhr.onreadystatechange = function(){  // 
+    console.log(xhr.readyState);
+
+    if (xhr.readyState === 4) {
+        console.log(this.responseText)   // when the loop completely pass to the 4 then it gives all the data of api, this.responseText is an object
+
+            // OR
+
+        const data = JSON.parse(this.responseText)    // this.responseText stores data in String datatype which is in accessible through console.log(data), hence we have to apply JSON.parse to convert the data in object datatype
+        console.log(data)
+        console.log(data.followers)
+    }
+   }
+
+    xhr.send()       // used to call the above open request
+
+
+</script>
+
+</html>
