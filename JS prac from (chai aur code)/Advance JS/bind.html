@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIND</title>
+</head>
+<body>
+
+    <button>Button Clicked</button>
+
+</body>
+
+<script>
+
+    class react{
+        constructor(){
+            this.library = "React"
+            this.server = "https://libraryHost:07"      // dummy link
+
+            //requirement: get reference of button on click and must be a task perform as form submit or link redirecting
+            document.querySelector('button').addEventListener('click', this.handleClick.bind(this))    // we have to bind this with handleClick because other than this it can't access any thing
+
+        }
+
+        handleClick(){
+            console.log("button clicked");     // to check that code is working or not
+            console.log(this.server);  
+        }
+
+    }
+    const app = new react()
+
+</script>
+
+</html>
