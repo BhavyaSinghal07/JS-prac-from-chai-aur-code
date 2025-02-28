@@ -1,0 +1,43 @@
+<!-- closure is the combinations of functions bundled together 
+     lexical scoping: if there are multiple functions in a parent function then these inner functions also gets access of var of outer functions but the var of inner function are not accessible for parent function and sibling function
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure</title>
+</head>
+<body style="background-color: #313131;">
+    
+</body>
+
+<script>
+
+    // example of lexical scoping
+    function init() {
+        let name = "Mozilla";       // name is a local variable created by init
+        function displayName() {    // displayName() is the inner function, that forms a closure
+            console.log(name);      // use variable declared in the parent function
+        }
+        displayName();
+    }
+    init();
+
+
+    // example of closure
+    function makeFunc() {
+        const name = "Mozilla";
+        function displayName() {
+            console.log(name);
+        }
+        return displayName;
+    }
+    const myFunc = makeFunc();
+    myFunc();
+
+
+</script>
+
+</html>
